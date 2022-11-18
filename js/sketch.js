@@ -1,45 +1,25 @@
-var widthRect = 70;
-var heightRect = 70;
+let words = ["Plymouth", "is", "awesome"]
+let wordIndex = 0;
+
 
 function setup() {
     var canvas = createCanvas(800, 800);
     canvas.parent("p5container");
-    background(220);
 }
 
 function draw() {
-
-
-
-}
-
-function mousePressed() {
-    if (mouseButton == LEFT) {
-        fill(255, 255, 255);
-        rectMode(CENTER)
-        rect(mouseX, mouseY, widthRect, heightRect);
-    }
-
-    if (mouseButton == RIGHT) {
-        fill(255, 255, 255);
-        ellipseMode(CENTER)
-        ellipse(mouseX, mouseY, widthRect, heightRect);
-    }
+    background(220);
+textSize(mouseX);
+    text(words[wordIndex], mouseX, mouseY);
 
 }
 
-function keyPressed() {
-    if (keyCode == ENTER){
-        background(0)
-}
-if (keyCode == UP_ARROW) {
-    rect(mouseX, mouseY, widthRect+20, widthRect+40)
-    
-    }
+function keyPressed(){
+if (wordIndex == words.length)   {
+wordIndex = 0
+} else {
+    wordIndex++;
+} 
 
-if (keyCode == DOWN_ARROW) {
-    fill(random(0,255), random(0,255), random(0,255))
-    triangle(mouseX,mouseY,mouseX=50,mouseY, mouseX=25, mouseY-50)
-}
-
+console.log('wordIndex:' +wordIndex);
 }
